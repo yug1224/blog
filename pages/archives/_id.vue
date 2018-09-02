@@ -1,50 +1,43 @@
 <template>
-  <article>
-    <header class='page-header'></header>
-    <div class='meta'>
-      <span class='glyphicon glyphicon-calendar icon'></span>
-      <time class='time' v-bind:datetime='archive.datetime' pubdate>{{archive.date}}</time>
-      <span class='glyphicon glyphicon-tag icon'></span>
-      <span class='category' v-for='category in archive.categories' :key=category>
-        <a class='category' v-bind:href="'/categories/' + category">{{category}}</a>
-      </span>
+  <div>
+    <my-header/>
+    <div class='container main'>
+      <article>
+        <my-archive :archive='archive' />
+      </article>
+      <my-aside :categories='categories' />
     </div>
-    <h1 class='entry-title'>{{archive.title}}</h1>
-    <!-- include lib/ad -->
-    <div class='entry-content' v-html='archive.body'></div>
-    <footer>
-      <!-- include lib/share -->
-      <div class="meta">
-        <span class='glyphicon glyphicon-calendar icon'></span>
-        <time class='time' v-bind:datetime='archive.datetime' pubdate>{{archive.date}}</time>
-        <span class='glyphicon glyphicon-tag icon'></span>
-        <span class='category' v-for='category in archive.categories' :key=category>
-          <a class='category' v-bind:href="'/categories/' + category">{{category}}</a>
-        </span>
-      </div>
-    </footer>
-  </article>
+  </div>
 </template>
 
 <script>
+import MyHeader from '~/components/organisms/Header.vue'
+import MyArchive from '~/components/organisms/Archive.vue'
+import MyAside from '~/components/organisms/Aside.vue'
+
 import axios from '~/plugins/axios'
 import format from 'date-fns/format'
 import md from 'marked'
+import hljs from 'highlight.js'
 md.setOptions({
   highlight(code) {
-    return require('highlight.js').highlightAuto(code).value;
+    return hljs.highlightAuto(code).value;
   }
-});
+})
 
 export default {
-  name: 'id',
+  components: {
+    MyHeader,
+    MyArchive,
+    MyAside
+  },
   asyncData ({ params, error }) {
     const getArchiveDetail = axios.get(`/api/archives/${params.id}`)
     const getCategoryList = axios.get(`/api/categories`)
     return Promise.all([getArchiveDetail, getCategoryList])
       .then((res) => {
         const archive = res[0].data
-        const categoryList = res[1].data
+        const categories = res[1].data
 
         archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
         archive.date = format(archive.create, 'MMM DD, YYYY')
@@ -52,7 +45,7 @@ export default {
 
         return {
           archive,
-          categoryList
+          categories
         }
       })
       .catch((e) => {
@@ -61,8 +54,8 @@ export default {
   },
   head() {
     return {}
+  },
+  mounted: () => {
+    hljs.initHighlightingOnLoad()
   }
 }</script>
-
-<style scoped>
-</style>

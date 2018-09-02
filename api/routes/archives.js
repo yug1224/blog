@@ -5,17 +5,25 @@ const archives = require('../../data/archives.json')
 
 // archives 一覧取得
 router.get('/archives', (req, res) => {
-  // let { pages } = req.query
-  // let begin
-  // let end
+  let { pages, category } = req.query
+  let begin
+  let end
+  let result = archives
 
-  // if (pages) {
-  //   begin = (+pages - 1) * 5
-  //   end = begin + 5
-  // }
+  if (pages) {
+    begin = (+pages - 1) * 5
+    end = begin + 5
+    result = archives.slice(begin, end)
+  }
 
-  // const result = archives.slice(begin, end)
-  const result = archives
+  if (category) {
+    result = archives.filter(v => {
+      if (v.categories.includes(category)) {
+        return v
+      }
+    })
+  }
+
   if (result) {
     res.json(result)
   } else {

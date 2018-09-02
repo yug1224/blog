@@ -13,68 +13,38 @@ body {
   height: 100%;
   float: left;
   font-size: 62.5%;
+  margin: 0;
 }
 
 body {
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
   font-feature-settings: 'pkna';
   font-size: 1.6rem;
+  color: #333;
 
-  > .navbar {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: #007bbb;
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
 
-    .navbar-toggle {
-      border-color: #eee;
+    > article {
+      width: calc(100%-200px);
+      padding: 0 15px;
+      box-sizing: border-box;
+
+      .page-header {
+        padding-bottom: 9px;
+        margin: 40px 0 20px;
+        border-bottom: 1px solid #eee;
+      }
     }
 
-    .navbar-toggle:hover,
-    .navbar-toggle:focus {
-      background-color: #209bcb;
-    }
-
-    .navbar-brand {
-      color: #eee;
-    }
-
-    .navbar-nav > li > a {
-      color: #eee;
-    }
-
-    .navbar-collapse {
-      border-color: #eee;
-    }
-  }
-
-  > .container {
-    position: relative;
-    padding: 0px 10px 50px;
-
-    > .row {
-      margin: 0 -10px;
-    }
-  }
-
-  article.main {
-    padding: 0 10px;
-  }
-
-  aside {
-    padding: 0 10px;
-
-    .panel {
-      margin: 40px 0 0;
-      border-radius: 0.3em;
-    }
-
-    .panel-body {
-      text-align: center;
-      height: 280px;
-    }
-
-    .badge {
-      float: right;
+    @media only screen and (max-width: 768px) {
+      article, aside {
+        width: 100%;
+      }
     }
   }
 
@@ -82,29 +52,6 @@ body {
     margin-top: 0;
     margin-bottom: 30px;
     font-weight: bold;
-  }
-
-  .meta {
-    position: relative;
-    color: #888;
-
-    > .icon {
-      width: 16px;
-      height: 16px;
-      line-height: 16px;
-      font-size: 1.6rem;
-      text-align: center;
-    }
-
-    > .author,
-    time,
-    .category {
-      margin: 0 5px 0 0;
-    }
-
-    > span.category:not(:last-child):after {
-      content: ',';
-    }
   }
 
   .entry-content {
@@ -201,7 +148,12 @@ body {
     }
 
     pre {
-      font-size: 1.2rem;
+      word-break: break-all;
+      word-wrap: break-word;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 0.3rem;
+      padding: .5rem;
     }
   }
 
@@ -222,6 +174,18 @@ body {
   category-element {
     a.link {
       display: block;
+    }
+  }
+
+  .btn {
+    border: 1px solid transparent;
+    border-color: #ccc;
+    border-radius: 0.3rem;
+    padding: 6px 12px;
+    color: #333;
+
+    &:hover {
+      background-color: #ccc
     }
   }
 }
@@ -248,5 +212,10 @@ h5 {
 
 h6 {
   font-size: 1.6rem;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
 }
 </style>

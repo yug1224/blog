@@ -25,6 +25,7 @@
     "source-map-support": "^0.5.9"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.4.0",
     "eslint-config-prettier": "^3.0.1",
