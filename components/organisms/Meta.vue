@@ -28,7 +28,7 @@ export default {
   }
 
   .category + .category ::before {
-    content: ' / '
+    content: ' / ';
   }
 
   // > .icon {

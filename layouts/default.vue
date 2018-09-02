@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
+  font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', 'Hiragino Sans', 'ヒラギノ角ゴシック', YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   font-feature-settings: 'pkna';
   font-size: 1.6rem;
   color: #333;
@@ -42,7 +42,8 @@ body {
     }
 
     @media only screen and (max-width: 768px) {
-      article, aside {
+      article,
+      aside {
         width: 100%;
       }
     }
@@ -153,7 +154,7 @@ body {
       background-color: #f5f5f5;
       border: 1px solid #ccc;
       border-radius: 0.3rem;
-      padding: .5rem;
+      padding: 0.5rem;
     }
   }
 
@@ -185,7 +186,7 @@ body {
     color: #333;
 
     &:hover {
-      background-color: #ccc
+      background-color: #ccc;
     }
   }
 }

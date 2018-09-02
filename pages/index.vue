@@ -27,7 +27,7 @@ import md from 'marked'
 import hljs from 'highlight.js'
 md.setOptions({
   highlight(code) {
-    return hljs.highlightAuto(code).value;
+    return hljs.highlightAuto(code).value
   }
 })
 
@@ -38,12 +38,12 @@ export default {
     MyAside,
     MyPager
   },
-  asyncData ({ params, error }) {
-    const getArchiveList = axios.get(`/api/archives`, { params: { pages: 1} })
+  asyncData({ params, error }) {
+    const getArchiveList = axios.get(`/api/archives`, { params: { pages: 1 } })
     const getCategoryList = axios.get(`/api/categories`)
     const getPageList = axios.get(`/api/pages`)
     return Promise.all([getArchiveList, getCategoryList, getPageList])
-      .then((res) => {
+      .then(res => {
         const archives = res[0].data
         const categories = res[1].data
         const pages = res[2].data
@@ -51,13 +51,13 @@ export default {
         archives.forEach(archive => {
           archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
           archive.date = format(archive.create, 'MMM DD, YYYY')
-          archive.intro = md(archive.body).split('<!-- more -->')[0];
+          archive.intro = md(archive.body).split('<!-- more -->')[0]
           delete archive.body
         })
 
         const current = 1
         const pager = {
-           prev: current - 1
+          prev: current - 1
         }
         if (pages > current * 5) {
           pager.next = current + 1
@@ -69,7 +69,7 @@ export default {
           pager
         }
       })
-      .catch((e) => {
+      .catch(e => {
         error({ statusCode: 404, message: 'Not found' })
       })
   },

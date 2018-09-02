@@ -25,7 +25,7 @@ import md from 'marked'
 import hljs from 'highlight.js'
 md.setOptions({
   highlight(code) {
-    return hljs.highlightAuto(code).value;
+    return hljs.highlightAuto(code).value
   }
 })
 
@@ -35,11 +35,11 @@ export default {
     MyArchive,
     MyAside
   },
-  asyncData ({ params, error }) {
+  asyncData({ params, error }) {
     const getArchiveList = axios.get(`/api/archives`, { params })
     const getCategoryList = axios.get(`/api/categories`)
     return Promise.all([getArchiveList, getCategoryList])
-      .then((res) => {
+      .then(res => {
         const archives = res[0].data
         const categories = res[1].data
 
@@ -54,7 +54,7 @@ export default {
           categories
         }
       })
-      .catch((e) => {
+      .catch(e => {
         error({ statusCode: 404, message: 'Not found' })
       })
   },

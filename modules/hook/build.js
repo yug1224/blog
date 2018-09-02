@@ -8,6 +8,7 @@ const path = require('path')
 const ObjectId = mongojs.ObjectId
 
 module.exports = function() {
+  // eslint-disable-next-line
   this.nuxt.hook('build:before', async () => {
     console.log('build:before')
 

@@ -50,16 +50,16 @@ aside {
       }
     }
 
-    .panel-item + .panel-item{
+    .panel-item + .panel-item {
       border-top: 1px solid transparent;
       border-color: #ddd;
     }
 
-    .panel-header, .panel-item {
+    .panel-header,
+    .panel-item {
       padding: 10px;
-      box-sizing: border-box
+      box-sizing: border-box;
     }
   }
 }
 </style>
-

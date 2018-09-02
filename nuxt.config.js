@@ -59,5 +59,8 @@ module.exports = {
     // API middleware
     '~/api/index.js'
   ],
+  router: {
+    middleware: 'redirect'
+  },
   modules: ['@/modules/hook/build']
 }
