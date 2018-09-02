@@ -74,7 +74,30 @@ export default {
       })
   },
   head() {
-    return {}
+    return {
+      meta: [
+        {
+          property: 'og:title',
+          content: 'YuG1224 blog'
+        },
+        {
+          property: 'og:description',
+          content: 'プログラミングやカメラや日常のこと。'
+        },
+        {
+          property: 'og:type',
+          content: 'blog'
+        },
+        {
+          property: 'og:image',
+          content: 'https://blog.yug1224.com/images/profile/profile.png'
+        },
+        {
+          property: 'og:url',
+          content: 'https://blog.yug1224.com'
+        }
+      ]
+    }
   },
   mounted: () => {
     hljs.initHighlightingOnLoad()

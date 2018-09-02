@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'YuG1224 blog',
     meta: [
       {
         charset: 'utf-8'
@@ -11,18 +11,13 @@ module.exports = {
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Nuxt.js project'
       }
     ],
     link: [
       {
         rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico'
+        type: 'image/png',
+        href: '/images/profile/profile.png'
       },
       {
         rel: 'stylesheet',

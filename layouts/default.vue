@@ -3,7 +3,22 @@
 </template>
 
 <script>
-export default {}</script>
+export default {
+  head() {
+    return {
+      meta: [
+        {
+          property: 'twitter:card',
+          content: 'summary'
+        },
+        {
+          property: 'twitter:site',
+          content: '@YuG1224'
+        }
+      ]
+    }
+  }
+}</script>
 
 <style lang='scss'>
 html,

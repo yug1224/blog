@@ -42,6 +42,7 @@ export default {
         archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
         archive.date = format(archive.create, 'MMM DD, YYYY')
         archive.body = md(archive.body)
+        archive.intro = archive.body.split('<!-- more -->')[0]
 
         return {
           archive,
@@ -53,7 +54,31 @@ export default {
       })
   },
   head() {
-    return {}
+    return {
+      title: `${this.archive.title} - YuG1224 blog`,
+      meta: [
+        {
+          property: 'og:title',
+          content: this.archive.title
+        },
+        {
+          property: 'og:description',
+          content: this.archive.intro
+        },
+        {
+          property: 'og:type',
+          content: 'article'
+        },
+        {
+          property: 'og:image',
+          content: this.archive.image || 'https://blog.yug1224.com/images/profile/profile.png'
+        },
+        {
+          property: 'og:url',
+          content: `https://blog.yug1224.com/archives/${this.archive.id}`
+        }
+      ]
+    }
   },
   mounted: () => {
     hljs.initHighlightingOnLoad()
