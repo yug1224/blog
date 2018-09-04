@@ -1,7 +1,7 @@
 <template>
   <div class='pager'>
-    <a class='btn prev' :href="'/pages/' + pager.prev" v-if='pager.prev'>← Prev</a>
-    <a class='btn next' :href="'/pages/' + pager.next" v-if='pager.next'>Next →</a>
+    <nuxt-link class='btn prev' :to="pager.prev" v-if='pager.prev'>← Prev</nuxt-link>
+    <nuxt-link class='btn next' :to="pager.next" v-if='pager.next'>Next →</nuxt-link>
   </div>
 </template>
 

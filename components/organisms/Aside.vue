@@ -4,10 +4,10 @@
       <div class='panel-header'>Category</div>
 
       <div class='panel-item' v-for='category in categories' :key='category.index'>
-        <a :href="'/categories/' + category[0]">
+        <nuxt-link :to="'/categories/' + category[0]">
           <span>{{category[0]}}</span>
           <span>{{category[1]}}</span>
-        </a>
+        </nuxt-link>
       </div>
     </section>
   </aside>

@@ -14,17 +14,17 @@
 
     <template v-else-if='archive.intro'>
       <h1 class='entry-title'>
-        <a :href="'/archives/' + archive.id">{{archive.title}}</a>
+        <nuxt-link :to="'/archives/' + archive.id">{{archive.title}}</nuxt-link>
       </h1>
       <div class='entry-content' v-html='archive.body || archive.intro'></div>
       <footer>
-        <a class='btn more' :href="'/archives/' + archive.id">Read More →</a>
+        <nuxt-link class='btn more' :to="'/archives/' + archive.id">Read More →</nuxt-link>
       </footer>
     </template>
 
     <template v-else>
       <h3 class='entry-title'>
-        <a :href="'/archives/' + archive.id">{{archive.title}}</a>
+        <nuxt-link :to="'/archives/' + archive.id">{{archive.title}}</nuxt-link>
       </h3>
     </template>
 

@@ -4,7 +4,7 @@
     <time class='time' :datetime='archive.datetime' pubdate>{{archive.date}}</time>
     <span class='fas fa-tags icon'></span>
     <span class='category' v-for='(category, index) in archive.categories' :key='index'>
-      <a :href="'/categories/' + category">{{category}}</a>
+      <nuxt-link :to="'/categories/' + category">{{category}}</nuxt-link>
     </span>
   </div>
 </template>

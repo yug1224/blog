@@ -4,6 +4,7 @@
     <div class='container main'>
       <article>
         <my-archive :archive='archive' />
+        <my-pager :pager='pager'/>
       </article>
       <my-aside :categories='categories' />
     </div>
@@ -14,6 +15,7 @@
 import MyHeader from '~/components/organisms/Header.vue'
 import MyArchive from '~/components/organisms/Archive.vue'
 import MyAside from '~/components/organisms/Aside.vue'
+import MyPager from '~/components/organisms/Pager.vue'
 
 import getters from '~/plugins/getters'
 import format from 'date-fns/format'
@@ -29,7 +31,8 @@ export default {
   components: {
     MyHeader,
     MyArchive,
-    MyAside
+    MyAside,
+    MyPager
   },
   asyncData({ params, app}) {
     const archive = app.$getters.archives(params)
@@ -40,9 +43,18 @@ export default {
     archive.body = md(archive.body)
     archive.intro = archive.body.split('<!-- more -->')[0]
 
+    const pager = {}
+    if (archive.prev) {
+      pager.prev = `/archives/${archive.prev}`
+    }
+    if (archive.next) {
+      pager.next = `/archives/${archive.next}`
+    }
+
     return {
       archive,
-      categories
+      categories,
+      pager
     }
   },
   head() {

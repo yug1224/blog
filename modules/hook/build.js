@@ -20,9 +20,12 @@ module.exports = function() {
     const archiveList = []
 
     // Markdown を archives を変換
-    files.forEach(val => {
+    files.forEach((val, i) => {
       const { attributes: attr, body } = fm(fs.readFileSync(val, 'utf8'))
       const { id, title, create, modify, categories, image } = attr
+
+      const prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
+      const next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
 
       archiveList.push({
         id: new ObjectId(id),
@@ -33,7 +36,9 @@ module.exports = function() {
           return a > b ? 1 : -1
         }),
         image,
-        body
+        body,
+        prev,
+        next
       })
     })
 

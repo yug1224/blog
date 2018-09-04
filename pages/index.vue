@@ -51,10 +51,10 @@ export default {
 
     const current = 1
     const pager = {
-      prev: current - 1
+      prev: `/pages/${current - 1}`
     }
     if (pages > current * 5) {
-      pager.next = current + 1
+      pager.next = `/pages/${current + 1}`
     }
 
     return {

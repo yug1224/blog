@@ -1,8 +1,8 @@
 <template>
   <nav class='navbar'>
     <div class='container'>
-      <a class='navbar-brand' href='/'>@YuG1224 blog</a>
-      <a href='/archives'>Archives</a>
+      <nuxt-link class='navbar-brand' to='/'>@YuG1224 blog</nuxt-link>
+      <nuxt-link to='/archives'>Archives</nuxt-link>
     </div>
   </nav>
 </template>
