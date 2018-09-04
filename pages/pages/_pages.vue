@@ -89,7 +89,10 @@ export default {
       ]
     }
   },
-  mounted: () => {
-    hljs.initHighlightingOnLoad()
+  mounted: function(){
+    this.$nextTick(function(){
+      hljs.initHighlighting.called = false;
+      hljs.initHighlighting()
+    })
   }
 }</script>
