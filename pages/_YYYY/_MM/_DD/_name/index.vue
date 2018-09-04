@@ -1,3 +1,5 @@
+<template></template>
+
 <script>
 import data from '~/data/redirect.json'
 export default {

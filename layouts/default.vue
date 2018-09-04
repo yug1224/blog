@@ -170,6 +170,20 @@ body {
       }
     }
 
+     blockquote {
+      font-size: 1.6rem;
+      border-left: 5px solid #eee;
+      padding: 0 1rem;
+      margin: 0;
+    }
+
+    p code {
+      padding: 0.2rem 0.4rem;
+      color: #c7254e;
+      background-color: #f9f2f4;
+      border-radius: 0.3rem;
+    }
+    
     pre {
       word-break: break-all;
       word-wrap: break-word;
@@ -188,13 +202,6 @@ body {
   .ad {
     padding: 25px 0px;
     width: 100%;
-  }
-
-  blockquote {
-    font-size: 1.6rem;
-    border-left: 5px solid #eee;
-    padding: 0 1rem;
-    margin: 0;
   }
 
   category-element {
