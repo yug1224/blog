@@ -192,6 +192,9 @@ body {
 
   blockquote {
     font-size: 1.6rem;
+    border-left: 5px solid #eee;
+    padding: 0 1rem;
+    margin: 0;
   }
 
   category-element {
