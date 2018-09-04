@@ -4,6 +4,8 @@ const fs = require('fs')
 const glob = require('glob')
 const mongojs = require('mongojs')
 const path = require('path')
+const sm = require('sitemap')
+const { generate } = require('../../nuxt.config.js')
 
 const ObjectId = mongojs.ObjectId
 
@@ -36,5 +38,24 @@ module.exports = function() {
     })
 
     fs.writeFileSync('./data/archives.json', JSON.stringify(archiveList, null, 2))
+
+    let urls = []
+    generate.routes().forEach(v => {
+      if (/^\/archives\/.*/.test(v)) {
+        urls.push({
+          url: v,
+          changefreq: 'daily',
+          priority: 0.5
+        })
+      }
+    })
+
+    const sitemap = sm.createSitemap({
+      hostname: 'https://blog.yug1224.com',
+      cacheTime: 600000, // 600 sec cache period
+      urls: urls
+    })
+
+    fs.writeFileSync('./static/sitemap.xml', sitemap.toString())
   })
 }
