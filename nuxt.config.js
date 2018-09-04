@@ -35,7 +35,6 @@ module.exports = {
   ** Add axios globally
   */
   build: {
-    vendor: ['axios'],
     /*
     ** Run ESLINT on save
     */
@@ -50,12 +49,27 @@ module.exports = {
       }
     }
   },
-  serverMiddleware: [
-    // API middleware
-    '~/api/index.js'
-  ],
-  router: {
-    middleware: 'redirect'
+  generate: {
+    routes: () => {
+      const archives = require('./data/archives.json')
+      const redirect = require('./data/redirect.json')
+      const uniq = require('lodash/uniq')
+      let result = []
+      archives.forEach(v => {
+        result.push(`/archives/${v.id}`)
+        Array.prototype.push.apply(result, v.categories.map(v => `/categories/${v}`))
+      })
+      for (let i = 1; i * 5 < archives.length; i++) {
+        result.push(`/pages/${i}`)
+      }
+      Array.prototype.push.apply(result, Object.keys(redirect))
+      result = result.sort((a, b) => {
+        return a < b ? 1 : -1
+      })
+      result = uniq(result)
+      return result
+    }
   },
-  modules: ['@/modules/hook/build']
+  modules: ['@/modules/hook/build'],
+  plugins: ['~/plugins/getters']
 }

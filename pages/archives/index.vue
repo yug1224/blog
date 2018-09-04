@@ -19,10 +19,11 @@ import MyHeader from '~/components/organisms/Header.vue'
 import MyArchive from '~/components/organisms/Archive.vue'
 import MyAside from '~/components/organisms/Aside.vue'
 
-import axios from '~/plugins/axios'
+import getters from '~/plugins/getters'
 import format from 'date-fns/format'
 import md from 'marked'
 import hljs from 'highlight.js'
+
 md.setOptions({
   highlight(code) {
     return hljs.highlightAuto(code).value
@@ -35,28 +36,20 @@ export default {
     MyArchive,
     MyAside
   },
-  asyncData({ params, error }) {
-    const getArchiveList = axios.get(`/api/archives`)
-    const getCategoryList = axios.get(`/api/categories`)
-    return Promise.all([getArchiveList, getCategoryList])
-      .then(res => {
-        const archives = res[0].data
-        const categories = res[1].data
+  asyncData({ params, app }) {
+    const archives = app.$getters.archives(params)
+    const categories = app.$getters.categories()
 
-        archives.forEach(archive => {
-          archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
-          archive.date = format(archive.create, 'MMM DD, YYYY')
-          delete archive.body
-        })
+    archives.forEach(archive => {
+      archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
+      archive.date = format(archive.create, 'MMM DD, YYYY')
+      delete archive.body
+    })
 
-        return {
-          archives,
-          categories
-        }
-      })
-      .catch(e => {
-        error({ statusCode: 404, message: 'Not found' })
-      })
+    return {
+      archives,
+      categories
+    }
   },
   head() {
     return {

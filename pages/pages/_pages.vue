@@ -21,7 +21,7 @@ import MyArchive from '~/components/organisms/Archive.vue'
 import MyAside from '~/components/organisms/Aside.vue'
 import MyPager from '~/components/organisms/Pager.vue'
 
-import axios from '~/plugins/axios'
+import getters from '~/plugins/getters'
 import format from 'date-fns/format'
 import md from 'marked'
 import hljs from 'highlight.js'
@@ -38,40 +38,30 @@ export default {
     MyAside,
     MyPager
   },
-  asyncData({ params, error }) {
-    const getArchiveList = axios.get(`/api/archives`, { params })
-    const getCategoryList = axios.get(`/api/categories`)
-    const getPageList = axios.get(`/api/pages`)
-    return Promise.all([getArchiveList, getCategoryList, getPageList])
-      .then(res => {
-        const archives = res[0].data
-        const categories = res[1].data
-        const pages = res[2].data
+  asyncData({ params, app }) {
+    const archives = app.$getters.archives(params)
+    const categories = app.$getters.categories()
+    const pages = app.$getters.pages()
+    archives.forEach(archive => {
+      archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
+      archive.date = format(archive.create, 'MMM DD, YYYY')
+      archive.intro = md(archive.body).split('<!-- more -->')[0]
+      delete archive.body
+    })
 
-        archives.forEach(archive => {
-          archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
-          archive.date = format(archive.create, 'MMM DD, YYYY')
-          archive.intro = md(archive.body).split('<!-- more -->')[0]
-          delete archive.body
-        })
+    const current = +params.pages
+    const pager = {
+      prev: current - 1
+    }
+    if (pages > current * 5) {
+      pager.next = current + 1
+    }
 
-        const current = +params.pages
-        const pager = {
-          prev: current - 1
-        }
-        if (pages > current * 5) {
-          pager.next = current + 1
-        }
-
-        return {
-          archives,
-          categories,
-          pager
-        }
-      })
-      .catch(e => {
-        error({ statusCode: 404, message: 'Not found' })
-      })
+    return {
+      archives,
+      categories,
+      pager
+    }
   },
   head() {
     return {
