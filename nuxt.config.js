@@ -71,5 +71,11 @@ module.exports = {
     }
   },
   modules: ['@/modules/hook/build'],
-  plugins: ['~/plugins/getters']
+  plugins: [
+    '~/plugins/getters',
+    {
+      src: '~/plugins/gtag',
+      ssr: false
+    }
+  ]
 }

@@ -89,9 +89,9 @@ export default {
       ]
     }
   },
-  mounted: function(){
-    this.$nextTick(function(){
-      hljs.initHighlighting.called = false;
+  mounted: function() {
+    this.$nextTick(function() {
+      hljs.initHighlighting.called = false
       hljs.initHighlighting()
     })
   }

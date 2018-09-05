@@ -34,7 +34,7 @@ export default {
     MyAside,
     MyPager
   },
-  asyncData({ params, app}) {
+  asyncData({ params, app }) {
     const archive = app.$getters.archives(params)
     const categories = app.$getters.categories()
 
@@ -84,9 +84,9 @@ export default {
       ]
     }
   },
-  mounted: function(){
-    this.$nextTick(function(){
-      hljs.initHighlighting.called = false;
+  mounted: function() {
+    this.$nextTick(function() {
+      hljs.initHighlighting.called = false
       hljs.initHighlighting()
     })
   }
