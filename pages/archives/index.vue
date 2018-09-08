@@ -15,35 +15,25 @@
 </template>
 
 <script>
-import MyHeader from '~/components/organisms/Header.vue'
 import MyArchive from '~/components/organisms/Archive.vue'
 import MyAside from '~/components/organisms/Aside.vue'
-
-import getters from '~/plugins/getters'
+import MyHeader from '~/components/organisms/Header.vue'
 import format from 'date-fns/format'
-import md from 'marked'
+import getters from '~/plugins/getters'
 import hljs from 'highlight.js'
-
-md.setOptions({
-  highlight(code) {
-    return hljs.highlightAuto(code).value
-  }
-})
 
 export default {
   components: {
-    MyHeader,
     MyArchive,
-    MyAside
+    MyAside,
+    MyHeader
   },
   asyncData({ params, app }) {
     const archives = app.$getters.archives(params)
     const categories = app.$getters.categories()
 
-    archives.forEach(archive => {
-      archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
-      archive.date = format(archive.create, 'MMM DD, YYYY')
-      delete archive.body
+    archives.forEach(v => {
+      delete v.body
     })
 
     return {

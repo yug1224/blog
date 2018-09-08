@@ -12,36 +12,23 @@
 </template>
 
 <script>
-import MyHeader from '~/components/organisms/Header.vue'
 import MyArchive from '~/components/organisms/Archive.vue'
 import MyAside from '~/components/organisms/Aside.vue'
+import MyHeader from '~/components/organisms/Header.vue'
 import MyPager from '~/components/organisms/Pager.vue'
-
 import getters from '~/plugins/getters'
-import format from 'date-fns/format'
-import md from 'marked'
 import hljs from 'highlight.js'
-md.setOptions({
-  highlight(code) {
-    return hljs.highlightAuto(code).value
-  }
-})
 
 export default {
   components: {
-    MyHeader,
     MyArchive,
     MyAside,
+    MyHeader,
     MyPager
   },
   asyncData({ params, app }) {
     const archive = app.$getters.archives(params)
     const categories = app.$getters.categories()
-
-    archive.datetime = format(archive.create, 'YYYY-MM-DD HH:mm')
-    archive.date = format(archive.create, 'MMM DD, YYYY')
-    archive.body = md(archive.body)
-    archive.intro = archive.body.split('<!-- more -->')[0]
 
     const pager = {}
     if (archive.prev) {
@@ -88,6 +75,16 @@ export default {
     this.$nextTick(function() {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
+
+      this.$el.querySelectorAll('img').forEach(el => {
+        const { src } = el.dataset
+        const image = new Image()
+        image.src = src
+        image.onload = _ => {
+          console.log(image)
+          el.setAttribute('style', `content: url("${src}")`)
+        }
+      })
     })
   }
 }</script>

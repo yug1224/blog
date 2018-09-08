@@ -10,6 +10,7 @@ data/archives.json
 
 # Nuxt generate
 dist
+.firebase
 
 # Backpack build
 build

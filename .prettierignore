@@ -1,0 +1,5 @@
+.nuxt
+build
+dist
+data/*.json
+node_modules

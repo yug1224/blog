@@ -18,7 +18,7 @@ module.exports = {
   plugins: ['html', 'prettier'],
   // add your custom rules here
   rules: {
-    'space-before-function-paren': ['error', 'never'],
+    // 'space-before-function-paren': ['error', 'never'],
     'prettier/prettier': [
       'error',
       {

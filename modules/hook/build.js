@@ -1,37 +1,79 @@
 /* eslint-disable no-console */
+const { generate } = require('../../nuxt.config.js')
+const { JSDOM } = require('jsdom')
+const { ObjectId } = require('mongojs')
+const consola = require('consola')
 const fm = require('front-matter')
+const format = require('date-fns/format')
 const fs = require('fs')
 const glob = require('glob')
-const mongojs = require('mongojs')
+const hljs = require('highlight.js')
+const jimp = require('jimp')
+const md = require('marked')
 const path = require('path')
 const sm = require('sitemap')
-const { generate } = require('../../nuxt.config.js')
 
-const ObjectId = mongojs.ObjectId
+md.setOptions({
+  highlight(code) {
+    return hljs.highlightAuto(code).value
+  }
+})
 
-module.exports = function() {
+module.exports = async function() {
   // eslint-disable-next-line
   this.nuxt.hook('build:before', async () => {
-    console.log('build:before')
-
     const files = glob.sync(path.resolve('data/**/*.md')).sort((a, b) => {
       return a < b ? 1 : -1
     })
     const archiveList = []
 
     // Markdown を archives を変換
-    files.forEach((val, i) => {
-      const { attributes: attr, body } = fm(fs.readFileSync(val, 'utf8'))
-      const { id, title, create, modify, categories, image } = attr
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      let { attributes: attr, body } = fm(fs.readFileSync(file, 'utf8'))
+      let { id, title, create, modify, categories, image } = attr
+      let datetime, date, prev, next, dom
 
-      const prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
-      const next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
+      id = new ObjectId(id)
+      create = new Date(create)
+      modify = new Date(modify)
+      datetime = format(create, 'YYYY-MM-DD HH:mm')
+      date = format(create, 'MMM DD, YYYY')
+      body = md(body)
+      dom = new JSDOM(body).window.document.body
+      for (const el of dom.querySelectorAll('img')) {
+        let imagePath = el.src
+        if (/^\/images\/.*/.test(el.src)) {
+          imagePath = path.resolve(`./static${el.src}`)
+        }
+        const image = await jimp.read(imagePath)
+        const toBase64 = () => {
+          return new Promise(resolve => {
+            image
+              .quality(25)
+              .greyscale()
+              .blur(5)
+              .getBase64(jimp.MIME_JPEG, async (err, base64) => {
+                el.dataset.src = el.src
+                el.src = base64
+                resolve()
+              })
+          })
+        }
+        await toBase64()
+      }
+      body = dom.innerHTML
+
+      prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
+      next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
 
       archiveList.push({
-        id: new ObjectId(id),
+        id,
         title,
-        create: new Date(create),
-        modify: new Date(modify),
+        create,
+        datetime,
+        date,
+        modify,
         categories: categories.sort((a, b) => {
           return a > b ? 1 : -1
         }),
@@ -40,7 +82,8 @@ module.exports = function() {
         prev,
         next
       })
-    })
+      consola.info(file)
+    }
 
     fs.writeFileSync('./data/archives.json', JSON.stringify(archiveList, null, 2))
 
