@@ -76,9 +76,10 @@ export default {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
 
-      this.$el.querySelectorAll('.entry-content > p > img').forEach(el => {
+      this.$el.querySelectorAll('.entry-content .image img').forEach(el => {
         el.onload = _ => {
-          el.removeAttribute('style')
+          // el.removeAttribute('style')
+          el.classList.add('no-blur')
         }
       })
 

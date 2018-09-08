@@ -118,14 +118,25 @@ body {
       min-width: 300px;
     }
 
-    img {
-      position: relative;
-      max-width: 100%;
+    .image {
       border: solid 0.5em #fff;
       border-radius: 0.3em;
       box-shadow: rgba(0, 0, 0, 0.15) 0 1px 4px;
       box-sizing: border-box;
       margin: 1rem 0;
+      overflow: hidden;
+      display: grid;
+
+      img {
+        max-width: 100%;
+        position: relative;
+        filter: blur(50px);
+        transition: filter 750ms;
+
+        &.no-blur {
+          filter: blur(0px);
+        }
+      }
     }
 
     h2,

@@ -26,6 +26,10 @@ module.exports = async function() {
       return a < b ? 1 : -1
     })
     const archiveList = []
+    const renderer = new md.Renderer()
+    renderer.image = (href, title, text) => {
+      return `<p class='image'><img src='${href}' title='${title}' alt='${text}'></p>`
+    }
 
     // Markdown を archives を変換
     for (let i = 0; i < files.length; i++) {
@@ -39,7 +43,7 @@ module.exports = async function() {
       modify = new Date(modify)
       datetime = format(create, 'YYYY-MM-DD HH:mm')
       date = format(create, 'MMM DD, YYYY')
-      body = md(body)
+      body = md(body, { renderer })
       dom = new JSDOM(body).window.document.body
       for (const el of dom.querySelectorAll('img')) {
         let imagePath = el.src
@@ -49,14 +53,10 @@ module.exports = async function() {
         const image = await jimp.read(imagePath)
         const toBase64 = () => {
           return new Promise(resolve => {
-            image
-              .quality(25)
-              .greyscale()
-              .blur(5)
-              .getBase64(jimp.MIME_JPEG, async (err, base64) => {
-                el.setAttribute('style', `content: url("${base64}")`)
-                resolve()
-              })
+            image.quality(50).getBase64(jimp.MIME_JPEG, async (err, base64) => {
+              el.setAttribute('style', `content: url("${base64}")`)
+              resolve()
+            })
           })
         }
         await toBase64()
