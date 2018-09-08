@@ -54,8 +54,7 @@ module.exports = async function() {
               .greyscale()
               .blur(5)
               .getBase64(jimp.MIME_JPEG, async (err, base64) => {
-                el.dataset.src = el.src
-                el.src = base64
+                el.setAttribute('style', `content: url("${base64}")`)
                 resolve()
               })
           })

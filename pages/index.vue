@@ -86,15 +86,13 @@ export default {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
 
-      this.$el.querySelectorAll('img').forEach(el => {
-        const { src } = el.dataset
-        const image = new Image()
-        image.src = src
-        image.onload = _ => {
-          console.log(image)
-          el.setAttribute('style', `content: url("${src}")`)
+      this.$el.querySelectorAll('.entry-content > p > img').forEach(el => {
+        el.onload = _ => {
+          el.removeAttribute('style')
         }
       })
+
+      twttr.widgets.load()
     })
   }
 }</script>

@@ -21,6 +21,30 @@ export default {
             gtag('config', 'UA-43402891-1');
           `,
           type: 'text/javascript'
+        },
+        {
+          src: '//cdn.embedly.com/widgets/platform.js',
+          type: 'text/javascript',
+          async: true
+        },
+        {
+          innerHTML: `
+            window.twttr = (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+              if (d.getElementById(id)) return t;
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+              t._e = [];
+              t.ready = function(f) {
+                t._e.push(f);
+              };
+              return t;
+            }(document, "script", "twitter-wjs"));
+          `,
+          type: 'text/javascript'
         }
       ],
       meta: [
