@@ -78,7 +78,6 @@ export default {
 
       this.$el.querySelectorAll('.entry-content .image img').forEach(el => {
         el.onload = _ => {
-          // el.removeAttribute('style')
           el.classList.add('no-blur')
         }
       })
