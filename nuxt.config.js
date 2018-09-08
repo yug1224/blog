@@ -74,10 +74,6 @@ module.exports = {
   plugins: [
     '~/plugins/getters',
     {
-      src: '~/plugins/image',
-      ssr: false
-    },
-    {
       src: '~/plugins/gtag',
       ssr: false
     }
