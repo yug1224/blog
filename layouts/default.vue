@@ -77,6 +77,7 @@ body {
   font-feature-settings: 'pkna';
   font-size: 1.6rem;
   color: #333;
+  word-wrap: break-word;
 
   .main {
     display: flex;
