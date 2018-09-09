@@ -132,7 +132,7 @@ body {
         max-width: 100%;
         position: relative;
         filter: blur(50px);
-        transition: filter 750ms;
+        transition: filter 1s;
 
         &.no-blur {
           filter: blur(0px);
