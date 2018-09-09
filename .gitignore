@@ -4,6 +4,9 @@ node_modules
 # logs
 npm-debug.log
 
+# Service Worker
+sw.*
+
 # Nuxt build
 .nuxt
 data/archives.json

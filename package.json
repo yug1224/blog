@@ -18,6 +18,7 @@
     "lint": "run-s prettier eslint"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^2.5.0",
     "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "date-fns": "^1.29.0",

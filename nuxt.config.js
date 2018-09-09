@@ -70,7 +70,7 @@ module.exports = {
       return result
     }
   },
-  modules: ['@/modules/hook/build'],
+  modules: ['@/modules/hook/build', '@nuxtjs/pwa'],
   plugins: [
     '~/plugins/getters',
     {
