@@ -15,15 +15,27 @@ module.exports = {
     ],
     link: [
       {
-        rel: 'icon',
-        type: 'image/png',
-        href: '/images/profile/profile.png'
-      },
-      {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.3.1/css/all.css',
         integrity: 'sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU',
         crossorigin: 'anonymous'
+      },
+      {
+        rel: 'apple-touch-icon',
+        href: '/apple-touch-icon.png',
+        sizes: '180x180'
+      },
+      {
+        rel: 'icon',
+        href: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png'
+      },
+      {
+        rel: 'icon',
+        href: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png'
       }
     ]
   },
@@ -70,6 +82,17 @@ module.exports = {
       return result
     }
   },
+  manifest: {
+    name: 'YuG1224 Blog',
+    lang: 'ja',
+    short_name: 'YuG1224 Blog',
+    title: 'YuG1224 Blog',
+    'og:title': 'YuG1224 Blog',
+    description: 'プログラミングや日常のこと。',
+    'og:description': 'プログラミングや日常のこと。',
+    theme_color: '#007bbb',
+    background_color: '#007bbb'
+  },
   modules: ['@/modules/hook/build', '@nuxtjs/pwa'],
   plugins: [
     '~/plugins/getters',
@@ -77,5 +100,8 @@ module.exports = {
       src: '~/plugins/gtag',
       ssr: false
     }
-  ]
+  ],
+  workbox: {
+    dev: true
+  }
 }

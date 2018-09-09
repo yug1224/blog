@@ -52,7 +52,7 @@ export default {
         },
         {
           property: 'og:description',
-          content: 'プログラミングやカメラや日常のこと。'
+          content: 'プログラミングや日常のこと。'
         },
         {
           property: 'og:type',
