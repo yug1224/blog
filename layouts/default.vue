@@ -8,6 +8,7 @@ export default {
     return {
       __dangerouslyDisableSanitizers: ['script'],
       script: [
+        // Google Analytics
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=UA-43402891-1',
           type: 'text/javascript',
@@ -22,11 +23,28 @@ export default {
           `,
           type: 'text/javascript'
         },
+        // Google AdSense
+        {
+          src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+          type: 'text/javascript',
+          async: true
+        },
+        {
+          innerHTML: `
+            (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-5265613840106782",
+              enable_page_level_ads: true
+            });
+          `,
+          type: 'text/javascript'
+        },
+        // embedly
         {
           src: '//cdn.embedly.com/widgets/platform.js',
           type: 'text/javascript',
           async: true
         },
+        // Twitter Widget
         {
           innerHTML: `
             window.twttr = (function(d, s, id) {
