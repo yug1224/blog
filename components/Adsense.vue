@@ -22,5 +22,7 @@ export default {
 ins {
   display: inline-flex;
   margin: 1.5rem;
+  max-width: 100%;
+  overflow: hidden;
 }
 </style>
