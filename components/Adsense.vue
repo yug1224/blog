@@ -21,7 +21,7 @@ export default {
 <style lang='scss' scoped>
 ins {
   display: inline-flex;
-  margin: 1.5rem;
+  margin: 1.5rem 0;
   max-width: 100%;
   overflow: hidden;
 }
