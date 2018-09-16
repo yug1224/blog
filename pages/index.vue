@@ -28,7 +28,7 @@ import hljs from 'highlight.js'
 
 export default {
   components: {
-    MyAdSense,
+    MyAdsense,
     MyArchive,
     MyAside,
     MyHeader,
