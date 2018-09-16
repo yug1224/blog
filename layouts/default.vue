@@ -144,7 +144,7 @@ body {
       box-sizing: border-box;
       margin: 1rem 0;
       overflow: hidden;
-      display: grid;
+      display: inline-grid;
 
       img {
         max-width: 100%;
