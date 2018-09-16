@@ -63,8 +63,8 @@ module.exports = async function() {
       }
       body = dom.innerHTML
 
-      next = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
-      prev = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
+      prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
+      next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
 
       archiveList.push({
         id,

@@ -45,9 +45,7 @@ export default {
     })
 
     const current = 1
-    const pager = {
-      prev: `/pages/${current - 1}`
-    }
+    const pager = {}
     if (pages > current * 5) {
       pager.next = `/pages/${current + 1}`
     }
