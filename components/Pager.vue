@@ -13,7 +13,7 @@ export default {
 <style lang='scss' scoped>
 .pager {
   display: flex;
-  margin: 20px 0;
+  margin: 1rem 0;
 
   .prev {
     margin-right: auto;

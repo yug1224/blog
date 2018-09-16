@@ -17,3 +17,9 @@ export default {
     })
   }
 }</script>
+
+<style lang='scss' scoped>
+ins {
+  margin: 1rem 0;
+}
+</style>
