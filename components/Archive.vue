@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import MyMeta from '~/components/organisms/Meta.vue'
+import MyMeta from '~/components/Meta.vue'
 export default {
   components: {
     MyMeta

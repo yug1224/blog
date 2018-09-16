@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import MyArchive from '~/components/organisms/Archive.vue'
-import MyAside from '~/components/organisms/Aside.vue'
-import MyHeader from '~/components/organisms/Header.vue'
+import MyArchive from '~/components/Archive.vue'
+import MyAside from '~/components/Aside.vue'
+import MyHeader from '~/components/Header.vue'
 import format from 'date-fns/format'
 import getters from '~/plugins/getters'
 import hljs from 'highlight.js'

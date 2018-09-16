@@ -8,6 +8,7 @@
           :archive='archive'
           :key='index'
         />
+        <my-adsense />
         <my-pager :pager='pager'/>
       </article>
       <my-aside :categories='categories' />
@@ -16,16 +17,18 @@
 </template>
 
 <script>
-import MyArchive from '~/components/organisms/Archive.vue'
-import MyAside from '~/components/organisms/Aside.vue'
-import MyHeader from '~/components/organisms/Header.vue'
-import MyPager from '~/components/organisms/Pager.vue'
+import MyAdsense from '~/components/Adsense.vue'
+import MyArchive from '~/components/Archive.vue'
+import MyAside from '~/components/Aside.vue'
+import MyHeader from '~/components/Header.vue'
+import MyPager from '~/components/Pager.vue'
 import format from 'date-fns/format'
 import getters from '~/plugins/getters'
 import hljs from 'highlight.js'
 
 export default {
   components: {
+    MyAdsense,
     MyArchive,
     MyAside,
     MyHeader,
