@@ -22,7 +22,7 @@
 
     .navbar-brand {
       color: #eee;
-      padding: 15px 15px 15px 15px;
+      padding: 1.5rem;
       font-size: 18px;
       line-height: 20px;
       box-sizing: border-box;
@@ -31,7 +31,7 @@
     a {
       color: #eee;
       position: relative;
-      padding: 10px 15px;
+      padding: 1rem 1.5rem;
       margin: auto 0;
       text-decoration: none;
     }

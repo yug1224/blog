@@ -20,7 +20,7 @@ export default {
 
 <style lang='scss' scoped>
 aside {
-  padding: 0 15px;
+  padding: 0 1.5rem;
   width: 200px;
   box-sizing: border-box;
 

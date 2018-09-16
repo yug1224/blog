@@ -20,6 +20,7 @@ export default {
 
 <style lang='scss' scoped>
 ins {
-  margin: 1rem 0;
+  display: inline-flex;
+  margin: 1.5rem;
 }
 </style>

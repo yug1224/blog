@@ -106,7 +106,7 @@ body {
 
     > article {
       width: calc(100%-200px);
-      padding: 0 15px;
+      padding: 0 1.5rem;
       box-sizing: border-box;
 
       .page-header {
