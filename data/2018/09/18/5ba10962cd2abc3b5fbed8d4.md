@@ -9,6 +9,9 @@ image: 'https://blog.yug1224.com/images/2018/09/18/0001.jpg'
 
 Roppongi.js#6 に参加してきたのでメモ。
 
+<blockquote class="embedly-card" data-card-key="efc9713d77434ae8b88ef22dda0a91e8" data-card-controls="0" data-card-type="article" data-card-align="left"><h4><a href="https://roppongi-js.connpass.com/event/98983/">Roppongi.js #6 (2018/09/18 19:00〜)</a></h4><p>Roppongi.jsって？ Roppongi.jsは六本木周辺に生息するJavaScript loversのJavaScript loversによるJavaScript loversのためのイベントです。 もちろん六本木周辺以外の方でもお気軽にご参加ください。 内容はJavaScriptにまつわることであればOKです。 初心者の方もガチ勢の方も大歓迎です。参加資格はJavaScriptを愛するかどうか。 ぜひぜひ奮ってご参加ください！ # 参加枠 * LT(10分)発表枠 - LT(10分)を発表いただく参加者の枠です * LT(5分)発表枠 - LT(5...</p></blockquote>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+
 <!-- more -->
 
 ## SET活動のすすめ by @urahiroshi
