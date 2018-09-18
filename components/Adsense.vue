@@ -13,7 +13,7 @@
 export default {
   mounted: function() {
     this.$nextTick(function() {
-      (adsbygoogle = window.adsbygoogle || []).push({})
+      ;(adsbygoogle = window.adsbygoogle || []).push({})
     })
   }
 }</script>

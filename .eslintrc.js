@@ -19,6 +19,15 @@ module.exports = {
   // add your custom rules here
   rules: {
     // 'space-before-function-paren': ['error', 'never'],
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
+      }
+    ],
+    'sort-vars': 'error',
     'prettier/prettier': [
       'error',
       {

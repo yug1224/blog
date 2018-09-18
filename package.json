@@ -8,10 +8,11 @@
     "node": "10"
   },
   "scripts": {
-    "dev": "nuxt --max-old-space-size=2048",
-    "build": "nuxt build --max-old-space-size=2048",
-    "start": "nuxt build && nuxt start --max-old-space-size=2048",
-    "generate": "nuxt generate --max-old-space-size=2048",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt build && nuxt start",
+    "generate": "nuxt generate",
+    "new": "node app.js",
     "precommit": "npm run lint",
     "prettier": "prettier --write \"./**/*.{js,vue,json,md}\"",
     "eslint": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",

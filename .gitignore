@@ -10,6 +10,7 @@ sw.*
 # Nuxt build
 .nuxt
 data/archives.json
+static/sitemap.xml
 
 # Nuxt generate
 dist

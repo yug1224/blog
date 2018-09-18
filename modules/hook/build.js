@@ -27,8 +27,8 @@ module.exports = async function() {
     })
     const archiveList = []
     const renderer = new md.Renderer()
-    renderer.image = (href, title, text) => {
-      return `<p class='image'><img src='${href}' title='${title}' alt='${text}'></p>`
+    renderer.image = (href, _, text) => {
+      return `<p class='image'><img src='${href}' title='${text}' alt='${text}'></p>`
     }
 
     // Markdown を archives を変換
@@ -36,7 +36,7 @@ module.exports = async function() {
       const file = files[i]
       let { attributes: attr, body } = fm(fs.readFileSync(file, 'utf8'))
       let { id, title, create, modify, categories, image } = attr
-      let datetime, date, prev, next, dom
+      let date, datetime, dom, next, prev
 
       id = new ObjectId(id)
       create = new Date(create)

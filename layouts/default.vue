@@ -145,6 +145,7 @@ body {
       margin: 1rem 0;
       overflow: hidden;
       display: inline-grid;
+      max-width: 500px;
 
       img {
         max-width: 100%;
