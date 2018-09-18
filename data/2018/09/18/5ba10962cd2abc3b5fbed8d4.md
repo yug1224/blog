@@ -13,9 +13,9 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 ## SET活動のすすめ by @urahiroshi
 
-<div style="max-width:500px">
+<!-- <div style="max-width:500px">
 <script async class="speakerdeck-embed" data-id="dc6eee68302845f9bdc35cd814cbaadd" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-</div>
+</div> -->
 
 - https://speakerdeck.com/urahiroshi/sethuo-dong-falsesusume
 - メルカリのWeb Frontend SETについて
@@ -45,9 +45,9 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 ## WebAssemblyのこれまでとこれから by @fnwiya
 
-<div style="max-width:500px">
+<!-- <div style="max-width:500px">
 <script async class="speakerdeck-embed" data-id="80c6d723cc6f4cee9006701ca71f7bf6" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-</div>
+</div> -->
 
 - https://speakerdeck.com/fnwiya/webassembly-future
 - 株式会社ジャパンベンチャーリサーチ
@@ -80,9 +80,9 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 ## TypeScript and immutability by @brn0227
 
-<div style="max-width:500px">
+<!-- <div style="max-width:500px">
 <script async class="speakerdeck-embed" data-id="e879bc4998574dc0b8cdd9d6d3fe0dcb" data-ratio="1.41436464088398" src="//speakerdeck.com/assets/embed.js"></script>
-</div>
+</div> -->
 
 - https://speakerdeck.com/brn/typescript-and-immutability
 - 株式会社サイバーエージェント
@@ -102,6 +102,7 @@ Roppongi.js#6 に参加してきたのでメモ。
   - PlainObject最高！
 
 ## プロトタイプを越えるReact Native by @timakin
+
 - 株式会社Gunosy
 - RN本番運用に対する見方
   - プロトタイプには向いているのでは？とか否定的な意見が多い
@@ -130,9 +131,9 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 ## JavaScriptはコンパイル言語か by @ariaki
 
-<div style="max-width:500px">
+<!-- <div style="max-width:500px">
 <script async class="speakerdeck-embed" data-id="22f1c345f89449b7aeb81d98b668bee3" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-</div>
+</div> -->
 
 - https://speakerdeck.com/ariaki/is-javascript-a-compiled-language
 - 前提条件
@@ -156,12 +157,12 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 ## Universal package.json by @れこ
 
-<iframe
+<!-- <iframe
   width="500"
   height="375"
   src="https://talks.leko.jp/universal-package.json"
 >
-</iframe>
+</iframe> -->
 
 - https://talks.leko.jp/universal-package.json/#0
 - 株式会社キュア・アップ
@@ -178,9 +179,9 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 ## 親に向かってなんだそのz-indexは！！ by @ojisan
 
-<div style="max-width:500px">
+<!-- <div style="max-width:500px">
 <script async class="speakerdeck-embed" data-id="e5c905298752499b83cb006b28bd0c11" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-</div>
+</div> -->
 
 - https://speakerdeck.com/sadnessojisan/qin-nixiang-katutenandasofalsez-indexha
 - 株式会社リクルートライフスタイル
