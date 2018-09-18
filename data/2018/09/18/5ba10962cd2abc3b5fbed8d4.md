@@ -5,6 +5,7 @@ create: '2018-09-18 23:19'
 modify: '2018-09-18 23:19'
 categories: [Meetup]
 image: 'https://blog.yug1224.com/images/2018/09/18/0001.jpg'
+image: ''
 ---
 
 Roppongi.js#6 に参加してきたのでメモ。
@@ -214,6 +215,6 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 個人的には「親に向かってなんだそのz-indexは！！」のLTが面白かったので凄く良かった。JSではなくてCSSの話だけどｗ
 
-![親に向かってなんだそのz-indexは](/images/2018/09/18/0001.jpg)
+<!-- ![親に向かってなんだそのz-indexは](/images/2018/09/18/0001.jpg) -->
 
 以上
