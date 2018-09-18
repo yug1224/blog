@@ -83,6 +83,7 @@ Roppongi.js#6 に参加してきたのでメモ。
 <div style="max-width:500px">
 <script async class="speakerdeck-embed" data-id="e879bc4998574dc0b8cdd9d6d3fe0dcb" data-ratio="1.41436464088398" src="//speakerdeck.com/assets/embed.js"></script>
 </div>
+
 - https://speakerdeck.com/brn/typescript-and-immutability
 - 株式会社サイバーエージェント
 - 青野だからブルーノ
@@ -154,6 +155,14 @@ Roppongi.js#6 に参加してきたのでメモ。
   - JSは両方持っているし、どっちでもいいｗ
 
 ## Universal package.json by @れこ
+
+<iframe
+  width="500"
+  height="375"
+  src="https://talks.leko.jp/universal-package.json"
+>
+</iframe>
+
 - https://talks.leko.jp/universal-package.json/#0
 - 株式会社キュア・アップ
 - `react-native` フィールド
