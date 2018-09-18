@@ -242,13 +242,6 @@ body {
       margin: 0;
     }
 
-    p code {
-      padding: 0.2rem 0.4rem;
-      color: #c7254e;
-      background-color: #f9f2f4;
-      border-radius: 0.3rem;
-    }
-
     pre {
       word-break: break-all;
       word-wrap: break-word;
@@ -257,6 +250,16 @@ body {
       border-radius: 0.3rem;
       padding: 0.5rem;
     }
+
+    :not(pre) {
+      code {
+        padding: 0.2rem 0.4rem;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 0.3rem;
+      }
+    }
+
   }
 
   .ninja_onebutton {
