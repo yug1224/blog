@@ -23,14 +23,14 @@ Roppongi.js#6 に参加してきたのでメモ。
 - https://speakerdeck.com/urahiroshi/sethuo-dong-falsesusume
 - メルカリのWeb Frontend SETについて
   - Security Engineering in Test
+- CI・開発プロセスの改善
+  - CircleCI
+  - GitHubの設定
+  - CIで使うnpm package作成
 - 外部ツールの導入・検証
   - Sentry
-    - JSエラー検知ツール
   - Codecov
-    - CIでのカバレッジ収集・可視化ツール
   - Renovate
-    - npm packageの自動更新ツール
-    - package更新用のPRの自動作成
 - テスト・リファクタリング
   - ユニットテストのセットアップ
     - カバレッジの目標設定
@@ -73,8 +73,7 @@ Roppongi.js#6 に参加してきたのでメモ。
 
 - 株式会社L is B
 - Majar上げるためにビルド環境を整備した話
-  - bower → gradle → grunt
-    - つらい
+  - bower → gradle → grunt のフローが複雑すぎてつらい
 - bowerの除去
   - bowerでのビルドからgradleでコピーのタスクをnpm scriptに移行
 - gruntの移行
