@@ -67,6 +67,7 @@ Roppongi.js#6 に参加してきたのでメモ。
   - Support more non-browser embeddings
 
 ## Vue.jsをv0.11.0からv2.5.16にあげようとしている話 by @iidaapp
+
 - 株式会社L is B
 - Majar上げるためにビルド環境を整備した話
   - bower → gradle → grunt

@@ -39,11 +39,11 @@ export default {
           type: 'text/javascript'
         },
         // embedly
-        // {
-        //   src: '//cdn.embedly.com/widgets/platform.js',
-        //   type: 'text/javascript',
-        //   async: true
-        // },
+        {
+          src: '//cdn.embedly.com/widgets/platform.js',
+          type: 'text/javascript',
+          async: true
+        },
         // Twitter Widget
         {
           innerHTML: `
