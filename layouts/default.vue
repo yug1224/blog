@@ -259,7 +259,6 @@ body {
         border-radius: 0.3rem;
       }
     }
-
   }
 
   .ninja_onebutton {

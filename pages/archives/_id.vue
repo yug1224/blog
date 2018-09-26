@@ -86,6 +86,10 @@ export default {
       })
 
       twttr.widgets.load()
+
+      const script = document.createElement('script')
+      script.src = '//speakerdeck.com/assets/embed.js'
+      document.body.appendChild(script)
     })
   }
 }</script>
