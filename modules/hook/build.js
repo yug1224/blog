@@ -62,7 +62,7 @@ module.exports = async function() {
         await toBase64()
       }
       body = dom.innerHTML
-      description = new JSDOM(body.split('<!-- more -->')[0]).window.document.body.textContent
+      description = new JSDOM(body.split('<!-- more -->')[0]).window.document.body.textContent.trim().replace(/\r?\n/g, ' ')
 
       prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
       next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
