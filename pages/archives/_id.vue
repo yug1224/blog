@@ -31,8 +31,6 @@ export default {
   },
   asyncData({ params, app }) {
     const archive = app.$getters.archives(params)
-    archive.intro = archive.body.split('<!-- more -->')[0]
-
     const categories = app.$getters.categories()
 
     const pager = {}
@@ -66,12 +64,12 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.archive.intro
+          content: this.archive.description
         },
         {
           hid: 'description',
           property: 'description',
-          content: this.archive.intro
+          content: this.archive.description
         },
         {
           hid: 'og:type',

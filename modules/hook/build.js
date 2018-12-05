@@ -36,7 +36,7 @@ module.exports = async function() {
       const file = files[i]
       let { attributes: attr, body } = fm(fs.readFileSync(file, 'utf8'))
       let { id, title, create, modify, categories, image } = attr
-      let date, datetime, dom, next, prev
+      let date, datetime, dom, next, prev, description
 
       id = new ObjectId(id)
       create = new Date(create)
@@ -62,6 +62,7 @@ module.exports = async function() {
         await toBase64()
       }
       body = dom.innerHTML
+      description = new JSDOM(body.split('<!-- more -->')[0]).window.document.body.textContent
 
       prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
       next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
@@ -78,6 +79,7 @@ module.exports = async function() {
         }),
         image,
         body,
+        description,
         prev,
         next
       })
