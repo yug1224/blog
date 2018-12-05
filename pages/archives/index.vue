@@ -43,27 +43,17 @@ export default {
   },
   head() {
     return {
-      title: 'Archives - YuG1224 blog',
+      title: this.getTitle(),
       meta: [
         {
+          hid: 'og:title',
           property: 'og:title',
-          content: 'YuG1224 blog'
+          content: this.getTitle()
         },
         {
-          property: 'og:description',
-          content: 'プログラミングや日常のこと。'
-        },
-        {
-          property: 'og:type',
-          content: 'blog'
-        },
-        {
-          property: 'og:image',
-          content: 'https://blog.yug1224.com/images/profile/profile.png'
-        },
-        {
-          property: 'og:url',
-          content: 'https://blog.yug1224.com'
+          hid: 'title',
+          property: 'og:title',
+          content: this.getTitle()
         }
       ]
     }
@@ -73,5 +63,10 @@ export default {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
     })
+  },
+  methods: {
+    getTitle() {
+      return 'Archives - YuG1224 blog'
+    }
   }
 }</script>

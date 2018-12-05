@@ -49,25 +49,40 @@ export default {
   },
   head() {
     return {
-      title: `${this.archive.title} - YuG1224 blog`,
+      title: this.getTitle(),
       meta: [
         {
+          hid: 'og:title',
           property: 'og:title',
-          content: this.archive.title
+          content: this.getTitle()
         },
         {
+          hid: 'title',
+          property: 'title',
+          content: this.getTitle()
+        },
+        {
+          hid: 'og:description',
           property: 'og:description',
           content: this.archive.intro
         },
         {
+          hid: 'description',
+          property: 'description',
+          content: this.archive.intro
+        },
+        {
+          hid: 'og:type',
           property: 'og:type',
           content: 'article'
         },
         {
+          hid: 'og:image',
           property: 'og:image',
           content: this.archive.image || 'https://blog.yug1224.com/images/profile/profile.png'
         },
         {
+          hid: 'og:url',
           property: 'og:url',
           content: `https://blog.yug1224.com/archives/${this.archive.id}`
         }
@@ -91,5 +106,10 @@ export default {
       script.src = '//speakerdeck.com/assets/embed.js'
       document.body.appendChild(script)
     })
+  },
+  methods: {
+    getTitle() {
+      return `${this.archive.title} - YuG1224 blog`
+    }
   }
 }</script>
