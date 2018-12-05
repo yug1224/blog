@@ -31,6 +31,8 @@ export default {
   },
   asyncData({ params, app }) {
     const archive = app.$getters.archives(params)
+    archive.intro = archive.body.split('<!-- more -->')[0]
+
     const categories = app.$getters.categories()
 
     const pager = {}
