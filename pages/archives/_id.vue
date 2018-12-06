@@ -77,14 +77,9 @@ export default {
           content: 'article'
         },
         {
-          hid: 'og:image',
-          property: 'og:image',
-          content: this.archive.image || 'https://blog.yug1224.com/images/profile/profile.png'
-        },
-        {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://blog.yug1224.com/archives/${this.archive.id}`
+          content: `https://blog.yug1224.com/archives/${this.archive.id}/`
         }
       ]
     }
