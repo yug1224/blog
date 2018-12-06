@@ -57,18 +57,8 @@ export default {
           content: this.getTitle()
         },
         {
-          hid: 'title',
-          property: 'title',
-          content: this.getTitle()
-        },
-        {
           hid: 'og:description',
           property: 'og:description',
-          content: this.archive.description
-        },
-        {
-          hid: 'description',
-          property: 'description',
           content: this.archive.description
         },
         {

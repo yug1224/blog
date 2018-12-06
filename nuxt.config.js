@@ -86,10 +86,6 @@ module.exports = {
     name: 'YuG1224 Blog',
     lang: 'ja',
     short_name: 'YuG1224 Blog',
-    title: 'YuG1224 Blog',
-    'og:title': 'YuG1224 Blog',
-    description: 'プログラミングや日常のこと。',
-    'og:description': 'プログラミングや日常のこと。',
     theme_color: '#007bbb',
     background_color: '#007bbb'
   },

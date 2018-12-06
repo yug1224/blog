@@ -67,13 +67,13 @@ export default {
       ],
       meta: [
         {
-          hid: 'og:title',
-          property: 'og:title',
+          hid: 'og:site_name',
+          property: 'og:site_name',
           content: 'YuG1224 blog'
         },
         {
-          hid: 'title',
-          property: 'title',
+          hid: 'og:title',
+          property: 'og:title',
           content: 'YuG1224 blog'
         },
         {
@@ -82,14 +82,9 @@ export default {
           content: 'プログラミングや日常のこと。'
         },
         {
-          hid: 'description',
-          property: 'description',
-          content: 'プログラミングや日常のこと。'
-        },
-        {
           hid: 'og:type',
           property: 'og:type',
-          content: 'blog'
+          content: 'website'
         },
         {
           hid: 'og:image',
@@ -99,7 +94,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://blog.yug1224.com'
+          content: 'https://blog.yug1224.com/'
         },
         {
           hid: 'twitter:card',

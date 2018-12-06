@@ -49,11 +49,6 @@ export default {
           hid: 'og:title',
           property: 'og:title',
           content: this.getTitle()
-        },
-        {
-          hid: 'title',
-          property: 'og:title',
-          content: this.getTitle()
         }
       ]
     }
