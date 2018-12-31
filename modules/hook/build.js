@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 const { generate } = require('../../nuxt.config.js')
 const { JSDOM } = require('jsdom')
-const { ObjectId } = require('mongojs')
 const consola = require('consola')
 const fm = require('front-matter')
 const format = require('date-fns/format')
@@ -35,10 +34,9 @@ module.exports = async function() {
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
       let { attributes: attr, body } = fm(fs.readFileSync(file, 'utf8'))
-      let { id, title, create, modify, categories, image } = attr
-      let date, datetime, dom, next, prev, description
+      let { id, title, create, modify, categories } = attr
+      let date, datetime, description, dom, next, prev
 
-      id = new ObjectId(id)
       create = new Date(create)
       modify = new Date(modify)
       datetime = format(create, 'YYYY-MM-DD HH:mm')
@@ -77,7 +75,6 @@ module.exports = async function() {
         categories: categories.sort((a, b) => {
           return a > b ? 1 : -1
         }),
-        image,
         body,
         description,
         prev,
