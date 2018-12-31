@@ -9,14 +9,12 @@
           :key='index'
         />
       </article>
-      <my-aside :categories='categories' />
     </div>
   </div>
 </template>
 
 <script>
 import MyArchive from '~/components/Archive.vue'
-import MyAside from '~/components/Aside.vue'
 import MyHeader from '~/components/Header.vue'
 import format from 'date-fns/format'
 import getters from '~/plugins/getters'
@@ -25,7 +23,6 @@ import hljs from 'highlight.js'
 export default {
   components: {
     MyArchive,
-    MyAside,
     MyHeader
   },
   asyncData({ params, app }) {

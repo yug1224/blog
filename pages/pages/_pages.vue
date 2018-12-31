@@ -11,7 +11,6 @@
         <my-adsense />
         <my-pager :pager='pager'/>
       </article>
-      <my-aside :categories='categories' />
     </div>
   </div>
 </template>
@@ -19,7 +18,6 @@
 <script>
 import MyAdsense from '~/components/Adsense.vue'
 import MyArchive from '~/components/Archive.vue'
-import MyAside from '~/components/Aside.vue'
 import MyHeader from '~/components/Header.vue'
 import MyPager from '~/components/Pager.vue'
 import format from 'date-fns/format'
@@ -30,7 +28,6 @@ export default {
   components: {
     MyAdsense,
     MyArchive,
-    MyAside,
     MyHeader,
     MyPager
   },

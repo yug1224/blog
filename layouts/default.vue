@@ -137,7 +137,7 @@ body {
     box-sizing: border-box;
 
     > article {
-      width: calc(100%-200px);
+      width: 100%;
       padding: 0 1.5rem;
       box-sizing: border-box;
 
@@ -145,13 +145,6 @@ body {
         padding-bottom: 9px;
         margin: 40px 0 20px;
         border-bottom: 1px solid #eee;
-      }
-    }
-
-    @media only screen and (max-width: 768px) {
-      article,
-      aside {
-        width: 100%;
       }
     }
   }
