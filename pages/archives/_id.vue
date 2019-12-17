@@ -4,7 +4,7 @@
     <div class='container main'>
       <article>
         <my-archive :archive='archive' />
-        <my-adsense />
+        <!-- <my-adsense /> -->
         <my-pager :pager='pager'/>
       </article>
     </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import MyAdsense from '~/components/Adsense.vue'
+// import MyAdsense from '~/components/Adsense.vue'
 import MyArchive from '~/components/Archive.vue'
 import MyHeader from '~/components/Header.vue'
 import MyPager from '~/components/Pager.vue'
@@ -21,7 +21,7 @@ import hljs from 'highlight.js'
 
 export default {
   components: {
-    MyAdsense,
+    // MyAdsense,
     MyArchive,
     MyHeader,
     MyPager

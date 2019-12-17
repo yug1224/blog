@@ -24,11 +24,11 @@ export default {
           type: 'text/javascript'
         },
         // Google AdSense
-        {
-          src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-          type: 'text/javascript',
-          async: true
-        },
+        // {
+        //   src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        //   type: 'text/javascript',
+        //   async: true
+        // },
         {
           innerHTML: `
             (adsbygoogle = window.adsbygoogle || []).push({
