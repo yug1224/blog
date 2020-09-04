@@ -25,7 +25,7 @@
     "date-fns": "^1.29.0",
     "express": "^4.16.3",
     "highlight.js": "^9.12.0",
-    "marked": "^0.5.0",
+    "marked": "^0.7.0",
     "npm-run-all": "^4.1.3",
     "nuxt": "latest",
     "sitemap": "^2.0.0",
