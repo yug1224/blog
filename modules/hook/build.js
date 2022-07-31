@@ -1,31 +1,34 @@
 /* eslint-disable no-console */
-const { generate } = require('../../nuxt.config.js')
-const { JSDOM } = require('jsdom')
-const consola = require('consola')
-const fm = require('front-matter')
-const format = require('date-fns/format')
-const fs = require('fs')
-const glob = require('glob')
-const hljs = require('highlight.js')
-const jimp = require('jimp')
-const md = require('marked')
-const path = require('path')
-const sm = require('sitemap')
+import config from '../../nuxt.config.js'
+const { generate } = config
 
-md.setOptions({
+import { JSDOM } from 'jsdom'
+import consola from 'consola'
+import fm from 'front-matter'
+import format from 'date-fns/format'
+import fs from 'fs'
+import glob from 'glob'
+import hljs from 'highlight.js'
+import jimp from 'jimp'
+import { marked } from 'marked'
+import path from 'path'
+import { SitemapStream, streamToPromise } from 'sitemap'
+import { Readable } from 'stream'
+
+marked.setOptions({
   highlight(code) {
     return hljs.highlightAuto(code).value
-  }
+  },
 })
 
-module.exports = async function() {
+module.exports = async function () {
   // eslint-disable-next-line
   this.nuxt.hook('build:before', async () => {
     const files = glob.sync(path.resolve('data/**/*.md')).sort((a, b) => {
       return a < b ? 1 : -1
     })
     const archiveList = []
-    const renderer = new md.Renderer()
+    const renderer = new marked.Renderer()
     renderer.image = (href, _, text) => {
       return `<p class='image'><img src='${href}' title='${text}' alt='${text}'></p>`
     }
@@ -39,9 +42,9 @@ module.exports = async function() {
 
       create = new Date(create)
       modify = new Date(modify)
-      datetime = format(create, 'YYYY-MM-DD HH:mm')
-      date = format(create, 'MMM DD, YYYY')
-      body = md(body, { renderer })
+      datetime = format(create, 'yyyy-MM-dd HH:mm')
+      date = format(create, 'MMM dd, yyyy')
+      body = marked.parse(body, { renderer })
       dom = new JSDOM(body).window.document.body
       for (const el of dom.querySelectorAll('img')) {
         let imagePath = el.src
@@ -50,7 +53,7 @@ module.exports = async function() {
         }
         const image = await jimp.read(imagePath)
         const toBase64 = () => {
-          return new Promise(resolve => {
+          return new Promise((resolve) => {
             image.quality(50).getBase64(jimp.MIME_JPEG, async (err, base64) => {
               el.setAttribute('style', `content: url("${base64}")`)
               resolve()
@@ -78,7 +81,7 @@ module.exports = async function() {
         body,
         description,
         prev,
-        next
+        next,
       })
       consola.info(file)
     }
@@ -86,21 +89,24 @@ module.exports = async function() {
     fs.writeFileSync('./data/archives.json', JSON.stringify(archiveList, null, 2))
 
     let urls = []
-    generate.routes().forEach(v => {
+
+    generate.routes().forEach((v) => {
       if (/^\/archives\/.*/.test(v)) {
         urls.push({
           url: v,
           changefreq: 'daily',
-          priority: 0.5
+          priority: 0.5,
         })
       }
     })
 
-    const sitemap = sm.createSitemap({
+    const stream = new SitemapStream({
       hostname: 'https://blog.yug1224.com',
-      cacheTime: 600000, // 600 sec cache period
-      urls: urls
+      // 600 sec cache period
+      cacheTime: 600000,
     })
+
+    const sitemap = await streamToPromise(Readable.from(urls).pipe(stream)).then((data) => data.toString())
 
     fs.writeFileSync('./static/sitemap.xml', sitemap.toString())
   })

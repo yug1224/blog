@@ -1,5 +1,5 @@
 <template>
-  <nuxt/>
+  <nuxt />
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=UA-43402891-1',
           type: 'text/javascript',
-          async: true
+          async: true,
         },
         {
           innerHTML: `
@@ -21,7 +21,7 @@ export default {
             gtag('js', new Date());
             gtag('config', 'UA-43402891-1');
           `,
-          type: 'text/javascript'
+          type: 'text/javascript',
         },
         // Google AdSense
         // {
@@ -36,13 +36,13 @@ export default {
               enable_page_level_ads: true
             });
           `,
-          type: 'text/javascript'
+          type: 'text/javascript',
         },
         // embedly
         {
           src: '//cdn.embedly.com/widgets/platform.js',
           type: 'text/javascript',
-          async: true
+          async: true,
         },
         // Twitter Widget
         {
@@ -62,56 +62,57 @@ export default {
               return t;
             }(document, "script", "twitter-wjs"));
           `,
-          type: 'text/javascript'
-        }
+          type: 'text/javascript',
+        },
       ],
       meta: [
         {
           hid: 'og:site_name',
           property: 'og:site_name',
-          content: 'YuG1224 blog'
+          content: 'YuG1224 blog',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'YuG1224 blog'
+          content: 'YuG1224 blog',
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'プログラミングや日常のこと。'
+          content: 'プログラミングや日常のこと。',
         },
         {
           hid: 'og:type',
           property: 'og:type',
-          content: 'website'
+          content: 'website',
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: 'https://blog.yug1224.com/images/profile/profile.png'
+          content: 'https://blog.yug1224.com/images/profile/profile.png',
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: 'https://blog.yug1224.com/'
+          content: 'https://blog.yug1224.com/',
         },
         {
           hid: 'twitter:card',
           property: 'twitter:card',
-          content: 'summary'
+          content: 'summary',
         },
         {
           hid: 'twitter:site',
           property: 'twitter:site',
-          content: '@YuG1224'
-        }
-      ]
+          content: '@YuG1224',
+        },
+      ],
     }
-  }
-}</script>
+  },
+}
+</script>
 
-<style lang='scss'>
+<style lang="scss">
 html,
 body {
   position: relative;
