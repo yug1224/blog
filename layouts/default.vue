@@ -125,6 +125,7 @@ body {
   @media (prefers-color-scheme: dark) {
     > * {
       mix-blend-mode: difference;
+      color: #a9a9a9;
     }
   }
 }
@@ -318,8 +319,16 @@ body {
     padding: 6px 12px;
     color: #333;
 
+    @media (prefers-color-scheme: dark) {
+      color: #a9a9a9;
+    }
+
     &:hover {
       background-color: #ccc;
+
+      @media (prefers-color-scheme: dark) {
+        color: #333;
+      }
     }
   }
 }
