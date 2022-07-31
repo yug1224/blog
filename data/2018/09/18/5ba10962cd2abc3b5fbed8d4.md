@@ -77,7 +77,7 @@ Roppongi.js#6 に参加してきたのでメモ。
 - bower の除去
   - bower でのビルドから gradle でコピーのタスクを npm script に移行
 - grunt の移行
-  - browserify, vueify, minify, concat, etc.  を webpack4 に移行
+  - browserify, vueify, minify, concat, etc. を webpack4 に移行
 - Vue.js のアップデート
   - deprecated を愚直に置き換え
 

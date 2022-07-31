@@ -1,5 +1,5 @@
 ---
-id: 01DB4NCP66B88SHR5NN06KB2HC
+id: 01db4ncp66b88shr5nn06kb2hc
 title: 'Inside Frontend 2019 参加メモ'
 create: '2019-05-19 23:00'
 modify: '2019-05-19 23:00'
@@ -28,8 +28,7 @@ Inside Frontend 2019 に参加してきたのでメモ。
 
 ## Introduction to Lucet
 
-- Fastly の WebAssembly のコンパイラとランタイムで構成される「Lucet」の紹介
-
+- Fastly の WebAssembly のコンパイラとランタイムで構成される「Lucet」の紹介
 - https://www.publickey1.jp/blog/19/fastly_ctowebassemblylucet.html
 - https://www.fastly.com/blog/announcing-lucet-fastly-native-webassembly-compiler-runtime
 - WebAssembly → Lucet → x86-64
