@@ -1,5 +1,4 @@
 {
   "deno.enable": false,
-  "deno.lint": false,
-  "vetur.ignoreProjectWarning": true
+  "deno.lint": false
 }
