@@ -117,6 +117,8 @@ html,
 body {
   position: relative;
   width: 100%;
+  min-height: 100%;
+  height: fit-content;
   float: left;
   font-size: 62.5%;
   margin: 0;
@@ -246,10 +248,10 @@ body {
       overflow-wrap: break-word;
       table-layout: auto;
       width: 100%;
-
-      thead {
-        background-color: #f5f5f5;
-      }
+      display: block;
+      overflow-x: scroll;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
 
       th,
       td {
