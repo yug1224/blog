@@ -118,7 +118,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 100%;
-  height: fit-content;
+  height: -webkit-fill-available;
   float: left;
   font-size: 62.5%;
   margin: 0;
