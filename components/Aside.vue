@@ -1,12 +1,16 @@
 <template>
   <aside>
-    <section class='panel'>
-      <div class='panel-header'>Category</div>
+    <section class="panel">
+      <div class="panel-header">Category</div>
 
-      <div class='panel-item' v-for='category in categories' :key='category.index'>
+      <div
+        v-for="category in categories"
+        :key="category.index"
+        class="panel-item"
+      >
         <nuxt-link :to="'/categories/' + category[0]">
-          <span>{{category[0]}}</span>
-          <span>{{category[1]}}</span>
+          <span>{{ category[0] }}</span>
+          <span>{{ category[1] }}</span>
         </nuxt-link>
       </div>
     </section>
@@ -15,10 +19,16 @@
 
 <script>
 export default {
-  props: ['categories']
-}</script>
+  props: {
+    categories: {
+      type: Array,
+      required: true,
+    },
+  },
+}
+</script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 aside {
   padding: 0 1.5rem;
   width: 200px;

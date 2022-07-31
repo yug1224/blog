@@ -1,13 +1,13 @@
 <template>
-  <nav class='navbar'>
-    <div class='container'>
-      <nuxt-link class='navbar-brand' to='/'>@YuG1224 Blog</nuxt-link>
-      <nuxt-link to='/archives'>Archives</nuxt-link>
+  <nav class="navbar">
+    <div class="container">
+      <nuxt-link class="navbar-brand" to="/">@YuG1224 Blog</nuxt-link>
+      <nuxt-link to="/archives">Archives</nuxt-link>
     </div>
   </nav>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .navbar {
   margin: 0;
   padding: 0;
