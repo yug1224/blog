@@ -122,6 +122,13 @@ body {
   font-size: 62.5%;
   margin: 0;
   background-color: #f5f5f5;
+  overflow: auto;
+
+  @media (prefers-color-scheme: dark) {
+    > * {
+      mix-blend-mode: difference;
+    }
+  }
 }
 
 body {

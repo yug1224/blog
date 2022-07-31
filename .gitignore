@@ -67,9 +67,11 @@ typings/
 
 # nuxt.js build output
 .nuxt
+data/archives.json
 
 # Nuxt generate
 dist
+static/sitemap.xml
 
 # vuepress build output
 .vuepress/dist
