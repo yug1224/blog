@@ -117,8 +117,6 @@ html,
 body {
   position: relative;
   width: 100%;
-  min-height: 100%;
-  height: -webkit-fill-available;
   float: left;
   font-size: 62.5%;
   margin: 0;
@@ -147,6 +145,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
+    min-height: calc(100vh - 50px);
 
     > article {
       width: 100%;
