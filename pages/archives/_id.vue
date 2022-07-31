@@ -1,30 +1,27 @@
 <template>
   <div>
-    <my-header/>
-    <div class='container main'>
+    <my-header />
+    <div class="container main">
       <article>
-        <my-archive :archive='archive' />
-        <!-- <my-adsense /> -->
-        <my-pager :pager='pager'/>
+        <my-archive :archive="archive" />
+        <my-pager :pager="pager" />
       </article>
     </div>
   </div>
 </template>
 
 <script>
-// import MyAdsense from '~/components/Adsense.vue'
+import hljs from 'highlight.js'
 import MyArchive from '~/components/Archive.vue'
 import MyHeader from '~/components/Header.vue'
 import MyPager from '~/components/Pager.vue'
-import getters from '~/plugins/getters'
-import hljs from 'highlight.js'
 
 export default {
   components: {
     // MyAdsense,
     MyArchive,
     MyHeader,
-    MyPager
+    MyPager,
   },
   asyncData({ params, app }) {
     const archive = app.$getters.archives(params)
@@ -41,7 +38,7 @@ export default {
     return {
       archive,
       categories,
-      pager
+      pager,
     }
   },
   head() {
@@ -51,37 +48,38 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.getTitle()
+          content: this.getTitle(),
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.archive.description
+          content: this.archive.description,
         },
         {
           hid: 'og:type',
           property: 'og:type',
-          content: 'article'
+          content: 'article',
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `https://blog.yug1224.com/archives/${this.archive.id}/`
-        }
-      ]
+          content: `https://blog.yug1224.com/archives/${this.archive.id}/`,
+        },
+      ],
     }
   },
-  mounted: function() {
-    this.$nextTick(function() {
+  mounted() {
+    this.$nextTick(function () {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
 
-      this.$el.querySelectorAll('.entry-content .image img').forEach(el => {
-        el.onload = _ => {
+      this.$el.querySelectorAll('.entry-content .image img').forEach((el) => {
+        el.onload = (_) => {
           el.classList.add('no-blur')
         }
       })
 
+      // eslint-disable-next-line no-undef
       twttr.widgets.load()
 
       const script = document.createElement('script')
@@ -92,6 +90,7 @@ export default {
   methods: {
     getTitle() {
       return `${this.archive.title} - YuG1224 blog`
-    }
-  }
-}</script>
+    },
+  },
+}
+</script>

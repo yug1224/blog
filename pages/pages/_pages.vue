@@ -1,49 +1,45 @@
 <template>
   <div>
-    <my-header/>
-    <div class='container main'>
+    <my-header />
+    <div class="container main">
       <article>
         <my-archive
-          v-for='(archive, index) in archives'
-          :archive='archive'
-          :key='index'
+          v-for="(archive, index) in archives"
+          :key="index"
+          :archive="archive"
         />
-        <!-- <my-adsense /> -->
-        <my-pager :pager='pager'/>
+        <my-pager :pager="pager" />
       </article>
     </div>
   </div>
 </template>
 
 <script>
-// import MyAdsense from '~/components/Adsense.vue'
+import hljs from 'highlight.js'
 import MyArchive from '~/components/Archive.vue'
 import MyHeader from '~/components/Header.vue'
 import MyPager from '~/components/Pager.vue'
-import format from 'date-fns/format'
-import getters from '~/plugins/getters'
-import hljs from 'highlight.js'
 
 export default {
   components: {
     // MyAdsense,
     MyArchive,
     MyHeader,
-    MyPager
+    MyPager,
   },
   asyncData({ params, app }) {
     const archives = app.$getters.archives(params)
     const categories = app.$getters.categories()
     const pages = app.$getters.pages()
 
-    archives.forEach(v => {
+    archives.forEach((v) => {
       v.intro = v.body.split('<!-- more -->')[0]
       delete v.body
     })
 
     const current = +params.pages
     const pager = {
-      prev: `/pages/${current - 1}`
+      prev: `/pages/${current - 1}`,
     }
     if (pages > current * 5) {
       pager.next = `/pages/${current + 1}`
@@ -52,25 +48,27 @@ export default {
     return {
       archives,
       categories,
-      pager
+      pager,
     }
   },
-  mounted: function() {
-    this.$nextTick(function() {
+  mounted() {
+    this.$nextTick(function () {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
 
-      this.$el.querySelectorAll('.entry-content .image img').forEach(el => {
-        el.onload = _ => {
+      this.$el.querySelectorAll('.entry-content .image img').forEach((el) => {
+        el.onload = (_) => {
           el.classList.add('no-blur')
         }
       })
 
+      // eslint-disable-next-line no-undef
       twttr.widgets.load()
 
       const script = document.createElement('script')
       script.src = '//speakerdeck.com/assets/embed.js'
       document.body.appendChild(script)
     })
-  }
-}</script>
+  },
+}
+</script>

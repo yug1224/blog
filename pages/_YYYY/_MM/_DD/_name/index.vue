@@ -1,5 +1,3 @@
-<template></template>
-
 <script>
 import data from '~/data/redirect.json'
 export default {
@@ -9,5 +7,6 @@ export default {
     if (url) {
       redirect(301, `/archives${url}`)
     }
-  }
-}</script>
+  },
+}
+</script>

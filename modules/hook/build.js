@@ -1,19 +1,21 @@
-/* eslint-disable no-console */
-import config from '../../nuxt.config.js'
-const { generate } = config
+/* eslint-disable */
+
+import { Readable } from 'stream'
+import fs from 'fs'
+import path from 'path'
 
 import { JSDOM } from 'jsdom'
+import { marked } from 'marked'
+import { SitemapStream, streamToPromise } from 'sitemap'
 import consola from 'consola'
 import fm from 'front-matter'
 import format from 'date-fns/format'
-import fs from 'fs'
 import glob from 'glob'
 import hljs from 'highlight.js'
 import jimp from 'jimp'
-import { marked } from 'marked'
-import path from 'path'
-import { SitemapStream, streamToPromise } from 'sitemap'
-import { Readable } from 'stream'
+
+import config from '../../nuxt.config.js'
+const { generate } = config
 
 marked.setOptions({
   highlight(code) {
@@ -21,7 +23,7 @@ marked.setOptions({
   },
 })
 
-module.exports = async function () {
+module.exports = function () {
   // eslint-disable-next-line
   this.nuxt.hook('build:before', async () => {
     const files = glob.sync(path.resolve('data/**/*.md')).sort((a, b) => {
@@ -63,10 +65,18 @@ module.exports = async function () {
         await toBase64()
       }
       body = dom.innerHTML
-      description = new JSDOM(body.split('<!-- more -->')[0]).window.document.body.textContent.trim().replace(/\r?\n/g, ' ')
+      description = new JSDOM(
+        body.split('<!-- more -->')[0]
+      ).window.document.body.textContent
+        .trim()
+        .replace(/\r?\n/g, ' ')
 
-      prev = files[i - 1] ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id : ''
-      next = files[i + 1] ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id : ''
+      prev = files[i - 1]
+        ? fm(fs.readFileSync(files[i - 1], 'utf8')).attributes.id
+        : ''
+      next = files[i + 1]
+        ? fm(fs.readFileSync(files[i + 1], 'utf8')).attributes.id
+        : ''
 
       archiveList.push({
         id,
@@ -86,9 +96,12 @@ module.exports = async function () {
       consola.info(file)
     }
 
-    fs.writeFileSync('./data/archives.json', JSON.stringify(archiveList, null, 2))
+    fs.writeFileSync(
+      './data/archives.json',
+      JSON.stringify(archiveList, null, 2)
+    )
 
-    let urls = []
+    const urls = []
 
     generate.routes().forEach((v) => {
       if (/^\/archives\/.*/.test(v)) {
@@ -106,7 +119,9 @@ module.exports = async function () {
       cacheTime: 600000,
     })
 
-    const sitemap = await streamToPromise(Readable.from(urls).pipe(stream)).then((data) => data.toString())
+    const sitemap = await streamToPromise(
+      Readable.from(urls).pipe(stream)
+    ).then((data) => data.toString())
 
     fs.writeFileSync('./static/sitemap.xml', sitemap.toString())
   })

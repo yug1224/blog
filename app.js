@@ -1,7 +1,7 @@
-const { ulid } = require('ulid')
 const fs = require('fs')
-const mkdirp = require('mkdirp')
 const path = require('path')
+const { ulid } = require('ulid')
+const mkdirp = require('mkdirp')
 const format = require('date-fns/format')
 const yaml = require('js-yaml')
 
@@ -14,7 +14,7 @@ const frontMatter = yaml.safeDump({
   title: '',
   create: format(now, 'YYYY-MM-DD HH:mm'),
   modify: format(now, 'YYYY-MM-DD HH:mm'),
-  categories: []
+  categories: [],
 })
 const data = `---\n${frontMatter}---\n<!-- more -->\n`
 

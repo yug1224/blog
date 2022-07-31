@@ -69,25 +69,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-    '@/modules/hook/build',
-  ],
-
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      name: 'YuG1224 Blog',
-      lang: 'ja',
-      short_name: 'YuG1224 Blog',
-      theme_color: '#007bbb',
-      background_color: '#007bbb',
-    },
-    workbox: {
-      dev: true,
-    },
-  },
+  modules: ['@/modules/hook/build'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <my-header/>
-    <div class='container main'>
+    <my-header />
+    <div class="container main">
       <article>
         <my-archive
-          v-for='(archive, index) in archives'
-          :archive='archive'
-          :key='index'
+          v-for="(archive, index) in archives"
+          :key="index"
+          :archive="archive"
         />
       </article>
     </div>
@@ -14,28 +14,26 @@
 </template>
 
 <script>
+import hljs from 'highlight.js'
 import MyArchive from '~/components/Archive.vue'
 import MyHeader from '~/components/Header.vue'
-import format from 'date-fns/format'
-import getters from '~/plugins/getters'
-import hljs from 'highlight.js'
 
 export default {
   components: {
     MyArchive,
-    MyHeader
+    MyHeader,
   },
   asyncData({ params, app }) {
     const archives = app.$getters.archives(params)
     const categories = app.$getters.categories()
 
-    archives.forEach(v => {
+    archives.forEach((v) => {
       delete v.body
     })
 
     return {
       archives,
-      categories
+      categories,
     }
   },
   head() {
@@ -45,13 +43,13 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.getTitle()
-        }
-      ]
+          content: this.getTitle(),
+        },
+      ],
     }
   },
-  mounted: function() {
-    this.$nextTick(function() {
+  mounted() {
+    this.$nextTick(function () {
       hljs.initHighlighting.called = false
       hljs.initHighlighting()
     })
@@ -59,6 +57,7 @@ export default {
   methods: {
     getTitle() {
       return 'Archives - YuG1224 blog'
-    }
-  }
-}</script>
+    },
+  },
+}
+</script>

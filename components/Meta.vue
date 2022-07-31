@@ -6,9 +6,9 @@
     }}</time>
     <span class="fas fa-tags icon"></span>
     <span
-      class="category"
       v-for="(category, index) in archive.categories"
       :key="index"
+      class="category"
     >
       <nuxt-link :to="'/categories/' + category">{{ category }}</nuxt-link>
     </span>
@@ -17,7 +17,12 @@
 
 <script>
 export default {
-  props: ['archive'],
+  props: {
+    archive: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>
 
@@ -41,23 +46,5 @@ export default {
   .category + .category ::before {
     content: ' / ';
   }
-
-  // > .icon {
-  //   width: 16px;
-  //   height: 16px;
-  //   line-height: 16px;
-  //   font-size: 1.6rem;
-  //   text-align: center;
-  // }
-
-  // > .author,
-  // time,
-  // .category {
-  //   margin: 0 5px 0 0;
-  // }
-
-  // > span.category:not(:last-child):after {
-  //   content: ',';
-  // }
 }
 </style>

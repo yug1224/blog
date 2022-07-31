@@ -9,7 +9,7 @@ export const getters = {
     let result = archives
 
     if (id) {
-      result = archives.find(v => {
+      result = archives.find((v) => {
         return v.id === id
       })
     }
@@ -21,7 +21,8 @@ export const getters = {
     }
 
     if (category) {
-      result = archives.filter(v => {
+      // eslint-disable-next-line array-callback-return
+      result = archives.filter((v) => {
         if (v.categories.includes(category)) {
           return v
         }
@@ -33,25 +34,24 @@ export const getters = {
   categories: () => {
     const archives = cloneDeep(data)
     const o = {}
-    let result
 
-    archives.forEach(v => {
-      v.categories.forEach(v => {
+    archives.forEach((v) => {
+      v.categories.forEach((v) => {
         o[v] = (o[v] || 0) + 1
       })
     })
-    result = Object.keys(o)
+    const result = Object.keys(o)
       .sort((a, b) => {
         return o[a] < o[b] ? 1 : -1
       })
-      .map(v => {
+      .map((v) => {
         return [v, o[v]]
       })
     return result
   },
   pages: () => {
     return cloneDeep(data).length
-  }
+  },
 }
 
 export default (_, inject) => {
