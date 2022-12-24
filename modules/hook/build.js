@@ -106,12 +106,14 @@ module.exports = function () {
       })
       consola.info(file)
 
-      feed.item({
-        title,
-        description,
-        url: `https://blog.yug1224.com/archives/${id}`,
-        date: create.toUTCString(),
-      })
+      if (i <= 10) {
+        feed.item({
+          title,
+          description,
+          url: `https://blog.yug1224.com/archives/${id}`,
+          date: create.toUTCString(),
+        })
+      }
     }
 
     fs.writeFileSync(
@@ -142,6 +144,6 @@ module.exports = function () {
     ).then((data) => data.toString())
 
     fs.writeFileSync('./static/sitemap.xml', sitemap.toString())
-    fs.writeFileSync('./static/feed', feed.xml())
+    fs.writeFileSync('./static/feed', feed.xml({ indent: true }))
   })
 }
