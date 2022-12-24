@@ -69,12 +69,12 @@ export default {
         {
           hid: 'og:site_name',
           property: 'og:site_name',
-          content: 'YuG1224 blog',
+          content: 'yug1224 blog',
         },
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'YuG1224 blog',
+          content: 'yug1224 blog',
         },
         {
           hid: 'og:description',
@@ -104,7 +104,7 @@ export default {
         {
           hid: 'twitter:site',
           property: 'twitter:site',
-          content: '@YuG1224',
+          content: '@yug1224',
         },
       ],
     }

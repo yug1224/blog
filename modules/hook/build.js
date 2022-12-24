@@ -1,18 +1,29 @@
 /* eslint-disable */
 
-import { Readable } from 'stream'
 import fs from 'fs'
 import path from 'path'
+import { Readable } from 'stream'
 
-import { JSDOM } from 'jsdom'
-import { marked } from 'marked'
-import { SitemapStream, streamToPromise } from 'sitemap'
 import consola from 'consola'
-import fm from 'front-matter'
 import format from 'date-fns/format'
+import fm from 'front-matter'
 import glob from 'glob'
 import hljs from 'highlight.js'
 import jimp from 'jimp'
+import { JSDOM } from 'jsdom'
+import { marked } from 'marked'
+import RSS from 'rss'
+import { SitemapStream, streamToPromise } from 'sitemap'
+
+const feed = new RSS({
+  title: 'yug1224 blog',
+  description: 'プログラミングや日常のこと。',
+  feed_url: 'https://blog.yug1224.com/rss.xml',
+  site_url: 'https://blog.yug1224.com',
+  language: 'jp',
+  pubDate: new Date().toUTCString(),
+  ttl: '60',
+})
 
 import config from '../../nuxt.config.js'
 const { generate } = config
@@ -94,6 +105,13 @@ module.exports = function () {
         next,
       })
       consola.info(file)
+
+      feed.item({
+        title,
+        description,
+        url: `https://blog.yug1224.com/archives/${id}`,
+        date: create.toUTCString(),
+      })
     }
 
     fs.writeFileSync(
@@ -124,5 +142,6 @@ module.exports = function () {
     ).then((data) => data.toString())
 
     fs.writeFileSync('./static/sitemap.xml', sitemap.toString())
+    fs.writeFileSync('./static/feed', feed.xml())
   })
 }

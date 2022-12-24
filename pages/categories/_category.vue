@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     getTitle() {
-      return `Category: ${this.category} - YuG1224 blog`
+      return `Category: ${this.category} - yug1224 blog`
     },
   },
 }

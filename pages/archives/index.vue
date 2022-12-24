@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     getTitle() {
-      return 'Archives - YuG1224 blog'
+      return 'Archives - yug1224 blog'
     },
   },
 }

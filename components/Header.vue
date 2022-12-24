@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="container">
-      <nuxt-link class="navbar-brand" to="/">@YuG1224 Blog</nuxt-link>
+      <nuxt-link class="navbar-brand" to="/">@yug1224 Blog</nuxt-link>
       <nuxt-link to="/archives">Archives</nuxt-link>
     </div>
   </nav>

@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'YuG1224 blog',
+    title: 'yug1224 blog',
     meta: [
       {
         charset: 'utf-8',

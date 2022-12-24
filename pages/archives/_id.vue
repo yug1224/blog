@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     getTitle() {
-      return `${this.archive.title} - YuG1224 blog`
+      return `${this.archive.title} - yug1224 blog`
     },
   },
 }
